@@ -9,17 +9,28 @@ const query = {
   },
 }
 
+const askAddress = () => {
+  let input = process.argv[2];
+  if(input){
+    return input;
+  } else {
+    console.log("Please enter valid address as an argument.");
+    process.exit();
+  }
+}
+
+
 //Geocoding
-geoCode("Victoria British Columbia", (err, location) => {
+geoCode(askAddress(), (err, {lat, long, location}) => {
   if (err) {
     return console.log(err);
   }
-  weather(location.lat, location.long, (err, forecast) => {
+  weather(lat, long, (err, forecast) => {
     if (err) {
       return console.log(err);
     }
 
-    console.log(location.location);
+    console.log(location);
     console.log(forecast);
   });
 
