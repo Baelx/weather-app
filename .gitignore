@@ -1,2 +1,2 @@
 node_modules
-modules/creds.js
+src/utils/creds.js
