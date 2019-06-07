@@ -1,40 +1,36 @@
 const weatherForm = document.querySelector('form');
+const geoButton = document.querySelector('.geo-button');
 const search = document.querySelector('input');
 const forecastElm = document.querySelector('.forecast');
+
 
 const searchButton = document.querySelector('.search-button');
 
 const errorField = document.querySelector('.help');
 const fieldDanger = document.querySelector('.field-danger');
 
-const toggleAnimate = () => {
-  document.querySelector('.search-loader').classList.toggle('hide');
-  document.querySelector('.search-button-text').classList.toggle('hide');
-}
-
 if ("geolocation" in navigator) {
   console.log("Geolocation available ");
-  document.querySelector('.geo').classList.toggle('hide-elm');
+  document.querySelector('.geo').classList.toggle('hide');
 } else {
   console.log("Geolocation not available");
 }
 
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log("Searching...");
+  searchButton.classList.toggle('is-loading');
+
   errorField.textContent = "";
-  // toggleAnimate();
 
   fetch(`http://localhost:3001/weather?address=${search.value}`).then((res) => {
     res.json().then((data) => {
       if (data.error) {
-        // toggleAnimate();
-        fieldDanger.classList.toggle('is-danger');
+        searchButton.classList.toggle('is-loading');
+        // fieldDanger.classList.toggle('is-danger');
         errorField.textContent = data.error;
       } else {
-        // toggleAnimate();
+        searchButton.classList.toggle('is-loading');
         fieldDanger.classList.toggle('is-danger');
-
         forecastElm.textContent = data.forecast;
         console.log(data);
       }
@@ -42,3 +38,7 @@ weatherForm.addEventListener('submit', (e) => {
     })
   })
 })
+
+geoButton.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
