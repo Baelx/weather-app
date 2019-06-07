@@ -2,14 +2,91 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../temp/css/main.css">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-  <p class="forecast"></p>
-  <form class="" action="index.html" method="post">
-    <input type="text" name="" value="">
-    <button type="button" name="button">search</button>
-  </form>
-  <script src="/js/main.js" charset="utf-8"></script>
+  <section class="section">
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical is-6">
+            <article class="tile is-child notification is-warning">
+              <p class="title">Weather App</p>
+              <p class=" is-right">Built by Baelx</p>
+            </article>
+            <article class="tile is-child notification is-primary">
+              <h1 class="title forecast">Weather App</h1>
+              <form class=""  method="post">
+                <label class="label">Address or City</label>
+                <div class="field has-addons">
+                  <div class="control is-left has-icons-right">
+                    <input class="input field-danger" type="text" placeholder="Location input">
+                  </span>
+                </div>
+                <div class="control">
+                  <button class="button is-link search-button"><p class="search-button-text">Search</p><i class="search-loader hide fas fa-sync fa-spin"></i></button>
+                </div>
+              </div>
+              <p class="help is-danger"></p>
+              <div class="geo hide">
+
+                <div class="field is-grouped">
+
+                  <label class="label">or</label>
+                </div>
+                <div class="control">
+                  <button class="button is-link">Use Geolocation</button>
+                </div>
+              </div>
+
+            </form>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-info">
+            <p class="title">Middle tile</p>
+            <p class="subtitle">With an image</p>
+            <figure class="image is-4by3">
+              <img src="https://bulma.io/images/placeholders/640x480.png">
+            </figure>
+          </article>
+        </div>
+        <div class="tile is-parent ">
+          <article class="tile is-child notification is-info">
+            <p class="title">Middle tile</p>
+            <p class="subtitle">With an image</p>
+            <figure class="image is-4by3">
+              <img src="https://bulma.io/images/placeholders/640x480.png">
+            </figure>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-danger">
+          <p class="title">Wide tile</p>
+          <p class="subtitle">Aligned with the right tile</p>
+          <div class="content">
+            <!-- Content -->
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent is-3">
+      <article class="tile is-child notification is-success">
+        <div class="content">
+          <p class="title">3-day forecast</p>
+          <div class="content">
+            <!-- Content -->
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<script src="../../../temp/js/App.js" charset="utf-8"></script>
 </body>
 </html>

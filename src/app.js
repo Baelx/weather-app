@@ -4,7 +4,7 @@ const geoCode = require('./utils/geocode')
 const weather = require('./utils/weather')
 
 const app = express()
-const port = 3001
+const port = 8888
 const hbs = require('hbs')
 
 app.use(express.static(path.join(__dirname, "../public")))
