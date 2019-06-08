@@ -16,10 +16,10 @@ const style = () => {
 const watch = () => {
   browserSync.init({
     proxy: {
-      target: 'localhost:8888'
+      target: 'localhost:3001'
     }
   });
-  gulp.watch('./public/assets/scss/main.scss', style);
+  gulp.watch('./public/assets/scss/**/*.scss', style);
   gulp.watch('./views/*.hbs').on('change', browserSync.reload);
   gulp.watch('./public/assets/js/**/*.js').on('change', scripts);
 };

@@ -2,6 +2,7 @@ const weatherForm = document.querySelector('form');
 const geoButton = document.querySelector('.geo-button');
 const search = document.querySelector('input');
 const forecastElm = document.querySelector('.forecast');
+const locationDisplay = document.querySelector('.location');
 
 
 const searchButton = document.querySelector('.search-button');
@@ -19,6 +20,7 @@ if ("geolocation" in navigator) {
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
   searchButton.classList.toggle('is-loading');
+  fieldDanger.classList.remove('is-danger');
 
   errorField.textContent = "";
 
@@ -26,12 +28,13 @@ weatherForm.addEventListener('submit', (e) => {
     res.json().then((data) => {
       if (data.error) {
         searchButton.classList.toggle('is-loading');
-        // fieldDanger.classList.toggle('is-danger');
+        fieldDanger.classList.toggle('is-danger');
         errorField.textContent = data.error;
       } else {
         searchButton.classList.toggle('is-loading');
-        fieldDanger.classList.toggle('is-danger');
         forecastElm.textContent = data.forecast;
+        locationDisplay.textContent = data.location;
+
         console.log(data);
       }
 
@@ -39,6 +42,27 @@ weatherForm.addEventListener('submit', (e) => {
   })
 })
 
-geoButton.addEventListener('submit', (e) => {
-  e.preventDefault();
+geoButton.addEventListener('click', (e) => {
+  geoButton.classList.toggle('is-loading');
+  navigator.geolocation.getCurrentPosition(position => {
+
+    console.log(position.coords.latitude, position.coords.longitude);
+
+    fetch(`http://localhost:3001/weather?lat=${position.coords.latitude}&long=${position.coords.longitude}`).then((res) => {
+      res.json().then((data) => {
+        if (data.error) {
+          geoButton.classList.toggle('is-loading');
+          fieldDanger.classList.toggle('is-danger');
+          errorField.textContent = data.error;
+        } else {
+          geoButton.classList.toggle('is-loading');
+          forecastElm.textContent = data.forecast;
+          locationDisplay.textContent = data.location;
+
+          console.log(data);
+        }
+
+      })
+    })
+  });
 });

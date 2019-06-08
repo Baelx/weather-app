@@ -15,13 +15,15 @@
       <div class="tile is-vertical is-9">
         <div class="tile is-parent is-12">
           <article class="tile is-child box">
-            <h1 class="title is-inline">Weather App</h1>
+            <h1 class="title is-inline">{{title}}</h1>
           </article>
         </div>
         <div class="tile">
 
           <div class="tile is-parent">
             <article class="tile is-child box">
+              <p class="subtitle is-4">Forecast</p>
+              <p class="subtitle location"></p>
               <h1 class="title forecast"></h1>
               <form class=""  method="post">
                 <label class="label">Address or City</label>
@@ -35,18 +37,17 @@
                 </div>
               </div>
               <p class="help is-danger"></p>
-              <div class="geo hide">
-
-                <div class="field is-grouped">
-
-                  <label class="label">or</label>
-                </div>
-                <div class="control">
-                  <button class="button geo-button is-primary is-outlined">Use Geolocation</button>
-                </div>
-              </div>
-
             </form>
+            <div class="geo hide">
+
+              <div class="field is-grouped">
+
+                <label class="label">or</label>
+              </div>
+              <div class="control">
+                <button class="button geo-button is-primary is-outlined">Use Geolocation</button>
+              </div>
+            </div>
           </article>
         </div>
         <div class="tile is-6 is-vertical">
@@ -94,10 +95,10 @@
     <div class="tile is-12">
       <div class="tile is-parent">
         <article class="tile is-child box">
-          <p class="title is-inline">Credits:&nbsp;</p>
+          <p class="subtitle is-inline">Credits:&nbsp;</p>
           <p class="is-inline"><a href="https://bulma.io">
             <img src="../../../assets/imgs/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
-          </a>, <a href="https://nodejs.org/"><img src="../../../assets/imgs/node.png" alt="NodeJS"></a>, and <a href="https://www.zooplus.be/magazine/CACHE_IMAGES/768/content/uploads/2017/03/fotolia_66749097.jpg" class="has-text-danger" alt="love"><i class="fas fa-heart"></i></a> by <a class="is-link" href="https://github.com/baelx">Baelx</a></p>
+          </a>, <a href="https://nodejs.org/"><img src="../../../assets/imgs/node.png" alt="NodeJS"></a>, and <i class=" has-text-danger fas fa-heart"></i> by <a class="is-link" href="https://github.com/baelx">Baelx</a></p>
         </article>
       </div>
     </footer>
