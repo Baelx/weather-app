@@ -10,7 +10,14 @@ const weather = (lat, long, callback) => {
     } else if (body.error){
       callback(body.error, undefined);
     } else {
-      callback(undefined, `${body.daily.data[0].summary} It is currently ${body.currently.temperature} degrees and there is a ${body.currently.precipProbability}% chance of preciptation.`);
+      callback(undefined, {
+        summary: body.daily.data[0].summary,
+        temp: body.currently.temperature,
+        precip: body.currently.precipProbability,
+        uv: body.currently.uvIndex,
+        humidity: body.currently.humidity,
+        wind: body.currently.windSpeed
+      })
     }
   })
 }

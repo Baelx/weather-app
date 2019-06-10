@@ -9,3 +9,12 @@
 
 .form {
   border-top: 2px solid grey; }
+
+.temp {
+  color: #00d1b2;
+  font-weight: 500; }
+
+.weather-detail {
+  color: #00d1b2;
+  font-size: 4rem;
+  font-weight: 500; }

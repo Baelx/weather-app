@@ -11,27 +11,33 @@ app.use(express.static(path.join(__dirname, "../public")))
 app.set('view engine', 'hbs')
 
 app.get('/weather', (req, res) => {
-  if (1 === 3){
+  if (req.query.address) {
+    if (!req.query.address){
+      return res.send({
+        error: "Please enter valid address as an argument."
+      })
+    } else {
+      console.log("looking up by address");
+      //Geocoding
+      geoCode(req.query.address, (err, {lat, long, location} = {}) => {
+        if (err) return res.send({ error: err });
 
-console.log("pay attention to me");
-    //Geocoding
-    geoCode(req.query.address, (err, {lat, long, location} = {}) => {
-      if (err) return res.send({ error: err });
+        weather(lat, long, (err, forecast) => {
+          if (err) return res.send({ err });
 
-      weather(lat, long, (err, forecast) => {
-        if (err) return res.send({ err });
+          res.send({
+            location,
+            forecast,
+            address: req.query.address
+          })
 
-        res.send({
-          location,
-          forecast,
-          address: req.query.address
-        })
+        });
 
       });
+    }
 
-    });
-  } else if (true){
-    console.log(req.query.lat, req.query.long);
+  } else if(req.query.lat && req.query.long) {
+    console.log("looking up by coords");
     weather(req.query.lat, req.query.long, (err, forecast) => {
       if (err) return res.send({ err });
 
@@ -40,10 +46,6 @@ console.log("pay attention to me");
       })
 
     });
-  } else {
-    return res.send({
-      error: "Please enter valid address as an argument."
-    })
   }
 
 })

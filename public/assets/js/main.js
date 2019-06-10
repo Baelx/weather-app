@@ -1,21 +1,25 @@
-const weatherForm = document.querySelector('form');
-const geoButton = document.querySelector('.geo-button');
-const search = document.querySelector('input');
-const forecastElm = document.querySelector('.forecast');
-const locationDisplay = document.querySelector('.location');
+// Forms and buttons
+const weatherForm = document.querySelector('form'),
+geoButton = document.querySelector('.geo-button'),
+search = document.querySelector('input')
+searchButton = document.querySelector('.search-button');
 
+// Where weather details go
+const humArea = document.querySelector('.humidity'),
+uvArea = document.querySelector('.uv-index'),
+windArea = document.querySelector('.wind'),
+preArea = document.querySelector('.precip'),
+tempArea = document.querySelector('.temp'),
+forecastElm = document.querySelector('.forecast'),
+locationDisplay = document.querySelector('.location');
 
-const searchButton = document.querySelector('.search-button');
+// Fields to indicate and display errors
+const errorField = document.querySelector('.help'),
+fieldDanger = document.querySelector('.field-danger');
 
-const errorField = document.querySelector('.help');
-const fieldDanger = document.querySelector('.field-danger');
+// Is the geolocation API available in this browser?
+"geolocation" in navigator ? document.querySelector('.geo').classList.toggle('hide') : console.log("Geolocation not available");
 
-if ("geolocation" in navigator) {
-  console.log("Geolocation available ");
-  document.querySelector('.geo').classList.toggle('hide');
-} else {
-  console.log("Geolocation not available");
-}
 
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -32,7 +36,13 @@ weatherForm.addEventListener('submit', (e) => {
         errorField.textContent = data.error;
       } else {
         searchButton.classList.toggle('is-loading');
-        forecastElm.textContent = data.forecast;
+        forecastElm.textContent = data.forecast.summary;
+        humArea.textContent = data.forecast.humidity;
+        uvArea.textContent = data.forecast.uv;
+        windArea.textContent = data.forecast.wind;
+        preArea.textContent = data.forecast.precip;
+        tempArea.textContent = data.forecast['temp'].toFixed(0);
+
         locationDisplay.textContent = data.location;
 
         console.log(data);
@@ -56,8 +66,12 @@ geoButton.addEventListener('click', (e) => {
           errorField.textContent = data.error;
         } else {
           geoButton.classList.toggle('is-loading');
-          forecastElm.textContent = data.forecast;
-          locationDisplay.textContent = data.location;
+          forecastElm.textContent = data.forecast.summary;
+          humArea.textContent = data.forecast.humidity;
+          uvArea.textContent = data.forecast.uv;
+          windArea.textContent = data.forecast.wind;
+          preArea.textContent = data.forecast.precip;
+          tempArea.textContent = data.forecast['temp'].toFixed(0);
 
           console.log(data);
         }
