@@ -1,20 +1,24 @@
+.has-text-caution {
+  color: #ffbc57; }
+
 .hide {
   opacity: 0;
-  transform: scaleX(0);
   transition: all 0.4s ease-out;
   position: absolute; }
 
 .weather-section {
   padding: 2rem 1rem; }
 
-.form {
-  border-top: 2px solid grey; }
+.forecast-article {
+  position: relative; }
 
-.temp {
-  color: #00d1b2;
-  font-weight: 500; }
+.lookup {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-top: 1px solid grey;
+  padding: 1rem 0 1.5rem 0;
+  transform: translateX(-50%); }
 
-.weather-detail {
-  color: #00d1b2;
-  font-size: 4rem;
-  font-weight: 500; }
+.temp, .weather-detail {
+  font-size: 4rem; }

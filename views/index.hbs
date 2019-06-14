@@ -23,35 +23,37 @@
         </div>
         <div class="tile">
 
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <h3 class="subtitle is-4">Forecast</h3>
-              <p class="subtitle location"></p>
+          <div class="tile is-parent has-text-centered">
+            <article class="tile is-child box forecast-article">
+              <h3 class="subtitle is-5 location">Forecast</h3>
               <p class="temp"></p>
-              <h2 class="title forecast">No weather data. Enter location</h2>
-              <form class=""  method="post">
-                <label class="label">Address or City</label>
-                <div class="field has-addons">
-                  <div class="control is-left has-icons-right">
-                    <input class="input field-danger" type="text" placeholder="Location input">
-                  </span>
+              <h2 class="title is-size-4 forecast">No weather data. Enter location</h2>
+              <div class="lookup">
+                <form class=""  method="post">
+                  <label class="label">Address or City</label>
+                  <div class="field has-addons">
+                    <div class="control is-left">
+                      <input class="input field-danger" type="text" placeholder="Location input">
+                    </span>
+                  </div>
+                  <div class="control">
+                    <button class="button search-button is-primary is-outlined">Search<i class="search-loader hide fas fa-sync fa-spin"></i></button>
+                  </div>
+                </div>
+                <p class="help is-danger"></p>
+              </form>
+              <div class="geo hide">
+
+                <div class="field is-grouped">
+
+                  <label class="label">or</label>
                 </div>
                 <div class="control">
-                  <button class="button search-button is-primary is-outlined">Search<i class="search-loader hide fas fa-sync fa-spin"></i></button>
+                  <button class="button geo-button is-primary is-outlined">Use Geolocation</button>
                 </div>
               </div>
-              <p class="help is-danger"></p>
-            </form>
-            <div class="geo hide">
-
-              <div class="field is-grouped">
-
-                <label class="label">or</label>
-              </div>
-              <div class="control">
-                <button class="button geo-button is-primary is-outlined">Use Geolocation</button>
-              </div>
             </div>
+
           </article>
         </div>
         <div class="tile is-6 is-vertical">
@@ -59,14 +61,15 @@
             <div class="tile is-parent">
               <article class="tile is-child box has-text-centered">
                 <h3 class="subtitle">Humidity</h3>
-                <p class=" weather-detail humidity">N/A</p>
+                <p class="has-text-danger weather-detail humidity">N/A</p>
+                <p class="has-text-danger intensity intensity--humidity">High</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box has-text-centered">
                 <h3 class="subtitle">Precipitation</h3>
-                <p class=" weather-detail precip">N/A</p>
-
+                <p class="has-text-primary weather-detail precip">N/A</p>
+                <p class="has-text-primary intensity intensity--precip">Low</p>
               </article>
             </div>
           </div>
@@ -74,15 +77,15 @@
             <div class="tile is-parent">
               <article class="tile is-child box has-text-centered">
                 <h3 class="subtitle">UV Index</h3>
-                <p class=" weather-detail uv-index">N/A</p>
-
+                <p class="has-text-warning weather-detail uv-index">N/A</p>
+                <p class="has-text-warning intensity intensity--precip">Medium</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box has-text-centered">
                 <h3 class="subtitle">Wind</h3>
-                <p class=" weather-detail wind">N/A</p>
-
+                <p class="has-text-caution weather-detail wind">N/A</p>
+                <p class="has-text-caution intensity intensity--precip">Fast</p>
               </article>
             </div>
           </div>
@@ -90,16 +93,21 @@
       </div>
 
     </div>
-    <div class="tile is-parent">
+    <div class="tile is-parent is-3 is-vertical">
+      <article class="tile is-child box has-text-centered">
+        <h3 class="subtitle">Options</h3>
+        <p class="">Last Request made at: </p>
+        <p class="intensity intensity--humidity">High</p>
+      </article>
       <article class="tile is-child box has-text-centered">
         <div class="content">
-          <h3 class="subtitle">Three day forcast</h3>
+          <h3 class="subtitle">Weather Alerts</h3>
           <div class="content">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-            <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
           </div>
         </div>
       </article>
+
     </div>
   </div>
   <footer class="tile is-ancestor">

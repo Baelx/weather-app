@@ -1,10 +1,13 @@
-//Var
+//Vars
 $bulma-green: #00d1b2;
+$orange-caution: hsl(36, 100%, 67%);
+
+.has-text-caution {
+  color: $orange-caution;
+}
 
 .hide {
   opacity: 0;
-  transform: scaleX(0);
-
   transition: all 0.4s ease-out;
   position: absolute;
 }
@@ -13,18 +16,22 @@ $bulma-green: #00d1b2;
   padding: 2rem 1rem;
 }
 
-.form {
-  border-top: 2px solid grey;
-
+.forecast-article {
+  position: relative;
 }
 
-.temp {
-  color: $bulma-green;
-  font-weight: 500;
+.lookup {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-top: 1px solid grey;
+  padding: 1rem 0 1.5rem 0;
+  transform: translateX(-50%);
+  form {
+  }
 }
 
-.weather-detail {
-  color: $bulma-green;
+.temp, .weather-detail {
   font-size: 4rem;
-  font-weight: 500;
+  // font-weight: 500;
 }
