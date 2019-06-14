@@ -21,6 +21,7 @@ $orange-caution: hsl(36, 100%, 67%);
 }
 
 .lookup {
+  width: 75%;
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -29,6 +30,10 @@ $orange-caution: hsl(36, 100%, 67%);
   transform: translateX(-50%);
   form {
   }
+}
+
+.geo-button {
+float: right;
 }
 
 .temp, .weather-detail {

@@ -13,6 +13,27 @@ tempArea = document.querySelector('.temp'),
 forecastElm = document.querySelector('.forecast'),
 locationDisplay = document.querySelector('.location');
 
+
+// Create an instance to stop fetch req
+const controller = new AbortController()
+const signal = controller.signal
+
+document.addEventListener('keyup', (e) => {
+  if(e.key === "Escape") {
+      // write your logic here.
+      console.log('Now aborting');
+      // Abort.
+      controller.abort()
+  }
+})
+
+
+function abortFetching() {
+    console.log('Now aborting');
+    // Abort.
+    controller.abort()
+}
+
 // Fields to indicate and display errors
 const errorField = document.querySelector('.help'),
 fieldDanger = document.querySelector('.field-danger');
@@ -28,7 +49,7 @@ weatherForm.addEventListener('submit', (e) => {
 
   errorField.textContent = "";
 
-  fetch(`http://localhost:3001/weather?address=${search.value}`).then((res) => {
+  fetch(`http://localhost:3001/weather?address=${search.value}`, {signal}).then((res) => {
     res.json().then((data) => {
       if (data.error) {
         searchButton.classList.remove('is-loading');
@@ -58,7 +79,7 @@ geoButton.addEventListener('click', (e) => {
 
     console.log(position.coords.latitude, position.coords.longitude);
 
-    fetch(`http://localhost:3001/weather?lat=${position.coords.latitude}&long=${position.coords.longitude}`).then((res) => {
+    fetch(`http://localhost:3001/weather?lat=${position.coords.latitude}&long=${position.coords.longitude}`, {signal}).then((res) => {
       res.json().then((data) => {
         if (data.error) {
           geoButton.classList.toggle('is-loading');

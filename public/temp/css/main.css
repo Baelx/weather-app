@@ -13,12 +13,16 @@
   position: relative; }
 
 .lookup {
+  width: 75%;
   position: absolute;
   left: 50%;
   bottom: 0;
   border-top: 1px solid grey;
   padding: 1rem 0 1.5rem 0;
   transform: translateX(-50%); }
+
+.geo-button {
+  float: right; }
 
 .temp, .weather-detail {
   font-size: 4rem; }
