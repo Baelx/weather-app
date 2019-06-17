@@ -18,20 +18,28 @@ locationDisplay = document.querySelector('.location');
 const controller = new AbortController()
 const signal = controller.signal
 
+var cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('click', e => {
+    card.classList.toggle('is-flipped')
+  })
+});
+
 document.addEventListener('keyup', (e) => {
   if(e.key === "Escape") {
-      // write your logic here.
-      console.log('Now aborting');
-      // Abort.
-      controller.abort()
+    // write your logic here.
+    console.log('Now aborting');
+    // Abort.
+    controller.abort()
   }
 })
 
 
 function abortFetching() {
-    console.log('Now aborting');
-    // Abort.
-    controller.abort()
+  console.log('Now aborting');
+  // Abort.
+  controller.abort()
 }
 
 // Fields to indicate and display errors
@@ -92,7 +100,7 @@ geoButton.addEventListener('click', (e) => {
           uvArea.textContent = data.forecast.uv;
           windArea.textContent = data.forecast.wind;
           preArea.textContent = data.forecast.precip;
-          tempArea.textContent = data.forecast['temp'].toFixed(0);
+          tempArea.textContent = `${data.forecast['temp'].toFixed(0)}${String.fromCharCode(176)}`;
 
           console.log(data);
         }
