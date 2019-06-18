@@ -71,11 +71,11 @@
             <div class="tile is-parent has-text-centered flipper">
               <article class="tile is-child box card">
                 <div class="has-text-centered card__face card__face--front">
-                <h3 class="subtitle">Precipitation</h3>
-                <p class="has-text-primary weather-detail precip">N/A</p>
-                <p class="has-text-primary intensity intensity--precip">Low</p>
-              </div>
-              <div class="card__face card__face--back">back</div>
+                  <h3 class="subtitle">Precipitation</h3>
+                  <p class="has-text-primary weather-detail precip">N/A</p>
+                  <p class="has-text-primary intensity intensity--precip">Low</p>
+                </div>
+                <div class="card__face card__face--back">back</div>
               </article>
             </div>
           </div>
@@ -83,21 +83,21 @@
             <div class="tile is-parent has-text-centered flipper">
               <article class="tile is-child box card">
                 <div class="has-text-centered card__face card__face--front">
-                <h3 class="subtitle">UV Index</h3>
-                <p class="has-text-warning weather-detail uv-index">N/A</p>
-                <p class="has-text-warning intensity intensity--precip">Medium</p>
-              </div>
-              <div class="card__face card__face--back">back</div>
+                  <h3 class="subtitle">UV Index</h3>
+                  <p class="has-text-warning weather-detail uv-index">N/A</p>
+                  <p class="has-text-warning intensity intensity--precip">Medium</p>
+                </div>
+                <div class="card__face card__face--back">back</div>
               </article>
             </div>
             <div class="tile is-parent has-text-centered flipper">
               <article class="tile is-child box card">
                 <div class="has-text-centered card__face card__face--front">
-                <h3 class="subtitle">Wind</h3>
-                <p class="has-text-caution weather-detail wind">N/A</p>
-                <p class="has-text-caution intensity intensity--precip">Fast</p>
-              </div>
-              <div class="card__face card__face--back">back</div>
+                  <h3 class="subtitle">Wind</h3>
+                  <p class="has-text-caution weather-detail wind">N/A</p>
+                  <p class="has-text-caution intensity intensity--precip">Fast</p>
+                </div>
+                <div class="card__face card__face--back">back</div>
               </article>
             </div>
           </div>
@@ -107,9 +107,17 @@
     </div>
     <div class="tile is-parent is-3 is-vertical">
       <article class="tile is-child box has-text-centered">
-        <h3 class="subtitle">Options</h3>
-        <p class="">Last Request made at: </p>
-        <p class="intensity intensity--humidity">High</p>
+        <p class="last-request">Last Request made at: <span class="last-request--time">N/A</span></p>
+        <h3 class="options-title subtitle">Options</h3>
+        <div class="control has-text-centered">
+          <p>Get results in: </p>
+          <label class="radio">
+            <input type="radio" name="units" checked>
+            Metric
+          </label>
+          <label class="radio">
+            <input type="radio" name="units">
+            Imperial
       </article>
       <article class="tile is-child box has-text-centered">
         <div class="content">

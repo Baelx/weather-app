@@ -27,6 +27,14 @@
 .temp, .weather-detail {
   font-size: 4rem; }
 
+.last-request {
+  font-style: italic; }
+
+.options-title {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid grey; }
+
 .flipper {
   perspective: 600px; }
 

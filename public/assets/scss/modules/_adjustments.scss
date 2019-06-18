@@ -33,10 +33,23 @@ $orange-caution: hsl(36, 100%, 67%);
 }
 
 .geo-button {
-float: right;
+  float: right;
 }
 
 .temp, .weather-detail {
   font-size: 4rem;
   // font-weight: 500;
+}
+
+.last-request {
+  font-style: italic;
+  &--time {
+
+  }
+}
+
+.options-title {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid grey;
 }
