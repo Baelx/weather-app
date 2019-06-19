@@ -69,9 +69,9 @@ weatherForm.addEventListener('submit', (e) => {
       } else {
         searchButton.classList.remove('is-loading');
         forecastElm.textContent = data.forecast.summary;
-        humArea.textContent = data.forecast.humidity;
+        humArea.textContent = `${data.forecast.humidity * 100}${String.fromCharCode(37)}`;
         uvArea.textContent = data.forecast.uv;
-        windArea.textContent = data.forecast.wind;
+        windArea.textContent = `${data.forecast.wind}km/h`;
         preArea.textContent = data.forecast.precip;
         tempArea.textContent = `${data.forecast['temp'].toFixed(0)}${String.fromCharCode(176)}`;
         requestTime.textContent = data.forecast.time;
