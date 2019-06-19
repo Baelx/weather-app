@@ -11,14 +11,17 @@ windArea = document.querySelector('.wind'),
 preArea = document.querySelector('.precip'),
 tempArea = document.querySelector('.temp'),
 forecastElm = document.querySelector('.forecast'),
-locationDisplay = document.querySelector('.location');
-
+locationDisplay = document.querySelector('.location'),
+requestTime = document.querySelector('.last-request--time'),
+waTitle = document.querySelector('.wa-title'),
+waDesc = document.querySelector('.wa-desc'),
+waURI = document.querySelector('.wa-uri');
 
 // Create an instance to stop fetch req
 const controller = new AbortController()
 const signal = controller.signal
 
-var cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.card');
 
 cards.forEach(card => {
   card.addEventListener('click', e => {
@@ -71,7 +74,7 @@ weatherForm.addEventListener('submit', (e) => {
         windArea.textContent = data.forecast.wind;
         preArea.textContent = data.forecast.precip;
         tempArea.textContent = `${data.forecast['temp'].toFixed(0)}${String.fromCharCode(176)}`;
-
+        requestTime.textContent = data.forecast.time;
         locationDisplay.textContent = data.location;
 
         console.log(data);
@@ -85,15 +88,16 @@ geoButton.addEventListener('click', (e) => {
   geoButton.classList.toggle('is-loading');
   navigator.geolocation.getCurrentPosition(position => {
 
-    console.log(position.coords.latitude, position.coords.longitude);
-
     fetch(`http://localhost:3001/weather?lat=${position.coords.latitude}&long=${position.coords.longitude}`, {signal}).then((res) => {
       res.json().then((data) => {
+
         if (data.error) {
           geoButton.classList.toggle('is-loading');
           fieldDanger.classList.toggle('is-danger');
           errorField.textContent = data.error;
         } else {
+
+        const date = new Date(data.forecast.time);
           geoButton.classList.toggle('is-loading');
           forecastElm.textContent = data.forecast.summary;
           humArea.textContent = data.forecast.humidity;
@@ -101,6 +105,9 @@ geoButton.addEventListener('click', (e) => {
           windArea.textContent = data.forecast.wind;
           preArea.textContent = data.forecast.precip;
           tempArea.textContent = `${data.forecast['temp'].toFixed(0)}${String.fromCharCode(176)}`;
+          requestTime.textContent = date;
+          locationDisplay.textContent = data.location;
+
 
           console.log(data);
         }

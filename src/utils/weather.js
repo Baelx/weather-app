@@ -12,11 +12,18 @@ const weather = (lat, long, callback) => {
     } else {
       callback(undefined, {
         summary: body.daily.data[0].summary,
+        time: body.currently.time,
         temp: body.currently.temperature,
         precip: body.currently.precipProbability,
         uv: body.currently.uvIndex,
         humidity: body.currently.humidity,
-        wind: body.currently.windSpeed
+        wind: body.currently.windSpeed,
+        alerts: body.currently.alerts
+// {
+//           title: body.alerts[0].title,
+//           desc: body.alerts[0].description,
+//           uri: body.alerts[0].uri
+//         }
       })
     }
   })
