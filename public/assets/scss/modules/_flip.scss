@@ -21,4 +21,6 @@
 
 .card__face--back {
   transform: rotateY(180deg);
+  position: relative;
+  bottom: 50%;
 }
